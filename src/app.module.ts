@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './core/database/database.module';
 import * as Joi from '@hapi/joi';
 
 @Module({
@@ -16,6 +17,7 @@ import * as Joi from '@hapi/joi';
         POSTGRES_DB: Joi.string().required(),
       }),
     }),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
